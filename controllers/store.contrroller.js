@@ -6,7 +6,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const calcAreaGameModes=async (req,res)=>{
     const areaCode=parseInt(req.query.arcode);
     try {
-        const result=await AreaGameMode.find({areaCode:areaCode})
+        const result=await AreaGameMode.find({areaCode:areaCode}).sort({userCount:-1})
 
         res.status(200).send({success:true,result:result})
     } catch (error) {
